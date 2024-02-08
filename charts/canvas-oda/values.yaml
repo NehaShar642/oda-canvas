@@ -128,3 +128,44 @@ controller:
     loglevel: '20'
 webhooks:
   image: tmforumodacanvas/compcrdwebhook:0.6.2 
+
+
+kong:
+  enabled: true
+  env:
+    database: "postgres"
+    pg_host: "kong-postgresql.kong.svc.cluster.local"
+    pg_user: "kong"
+    pg_password: kong
+    pg_database: "kong"
+  
+  # Specify Kong's Docker image and repository details here
+  image:
+    repository: kong
+    tag: "3.5"
+    
+  # Enable creating a Kubernetes service for the admin API
+  admin:
+    enabled: true
+    type: LoadBalancer
+    http:
+      enabled: true
+  
+  postgresql:
+    enabled: true
+    auth:
+      username: kong
+      password: kong
+      database: kong
+  
+  # need to enable if want to run Kong Manager GUI	
+  enterprise:
+    enabled: true
+  
+  manager:
+    # Enable creating a Kubernetes service for Kong Manager
+    enabled: true
+    type: NodePort
+    ingress:
+      # Enable/disable exposure using ingress.
+      enabled: true
