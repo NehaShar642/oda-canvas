@@ -46,4 +46,5 @@ dependencies:
   - name: kong
     version: "2.35.0"
     repository: 'https://charts.konghq.com'
+    condition: kong.enabled
 
