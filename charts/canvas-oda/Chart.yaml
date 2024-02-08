@@ -43,4 +43,7 @@ dependencies:
   - name: oda-webhook
     version: "1.0.0"
     repository: 'file://../oda-webhook'
+  - name: kong
+    version: "2.35.0"
+    repository: 'https://charts.konghq.com'
 
