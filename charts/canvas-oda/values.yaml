@@ -134,7 +134,7 @@ kong:
   enabled: true
   env:
     database: "postgres"
-    pg_host: "kong-postgresql.kong.svc.cluster.local"
+    pg_host: "kong-postgresql.canvas.svc.cluster.local"
     pg_user: "kong"
     pg_password: kong
     pg_database: "kong"
